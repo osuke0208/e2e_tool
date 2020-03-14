@@ -19,4 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+Route::get('/home/{id}', 'HomeController@home')->name('home');
+Route::get('/logout','Auth\LoginController@logout');
+
+Route::get('/scenario/{id}','ScenarioController@index');
+Route::get('/scenario/{id}/add','ScenarioController@add');
+Route::post('/scenario/{id}/add','ScenarioController@create');
