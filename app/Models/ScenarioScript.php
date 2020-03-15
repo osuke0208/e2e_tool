@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ScenarioScript extends Model
+class ScenarioScript extends ScenarioParameter
 {
     //
 }

@@ -26,3 +26,11 @@ Route::get('/logout','Auth\LoginController@logout');
 Route::get('/scenario/{id}','ScenarioController@index');
 Route::get('/scenario/{id}/add','ScenarioController@add');
 Route::post('/scenario/{id}/add','ScenarioController@create');
+
+Route::get('scenario_parameter/{id}','ScenarioParameterController@index');
+Route::get('/scenario_parameter/{id}/add','ScenarioParameterController@add');
+Route::post('/scenario_parameter/{id}/add','ScenarioParameterController@create');
+
+Route::get('scenario_script/{id}','ScenarioScriptController@index');
+Route::get('/scenario_script/{id}/add','ScenarioScriptController@add');
+Route::post('/scenario_script/{id}/add','ScenarioScriptController@create');

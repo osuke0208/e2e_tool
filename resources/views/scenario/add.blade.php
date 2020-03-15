@@ -15,16 +15,18 @@
           <input type="submit" class="btn btn-primary" value="登録">
         </div>
       </div>
+
       <div class="row">
         <div class="col-3">
           <input type="hidden" id="user_id" name="scenario[user_id]" value="{{$id}}">
           <input type="hidden" id="project_id" name="scenario[project_id]" value="999999">
-          <input type="text" class="form-control" id="name" placeholder="シナリオ名"name="scenario[name]">
+          <input  type="text" class="form-control" id="name" placeholder="シナリオ名" name="scenario[name]" >
         </div>
         <div class="col-6">
           <input  type="text" class="form-control" id="description" placeholder="概要" name="scenario[description]" >
         </div>
       </div>
+
       変数入力
       <div id="input_pluralBox">
         <div id="input_plural">

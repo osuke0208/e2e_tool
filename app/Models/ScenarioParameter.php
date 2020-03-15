@@ -17,4 +17,10 @@ class ScenarioParameter extends Model
     public function scenario(){
       return $this->belongsTo('App\Models\Scenario');
     }
+
+    public function scopeNameEqualScenario($query, $name){
+      return $query->whereHas('scenario',function($query) use($name){
+        $query->where('name', $name);
+      });
+    }
 }

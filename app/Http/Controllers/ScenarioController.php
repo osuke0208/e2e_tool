@@ -18,7 +18,7 @@ class ScenarioController extends Controller
     }
 
     function index( Request $request, $id = null ){
-        $items = Scenario::orderby('created_at','desc')->get();
+        $items = $this->model()->orderby('created_at','desc')->get();
 
         $view_params = [
           'id' => $id,
@@ -37,36 +37,24 @@ class ScenarioController extends Controller
       $form = $request->all();
       unset($form['_token']);
 
+      $parameter = $this->make_parameter_data($form);
+
+      $items->fill($form['scenario'])->save();
+      $items->scenario_parameter()->createMany($parameter);
+
+      return redirect('/scenario/'.$id);
+
+    }
+
+
+    function make_parameter_data( $form ){
+      $parameter = [];
       foreach($form['parameter']['name'] as $key => $name){
         $parameter[$key] = array(
           'name' => $name,
           'value' =>  $form['parameter']['value'][$key]
         );
-      };
-
-      $items->fill($form['scenario'])->save();
-      $items->scenario_parameter()->createMany($parameter);
-/*
-      DB::beginTransaction();
-      try{
-        $items->fill($form['scenario'])->save();
-        $items->scenario_parameter()->createMany($parameter);
-      }catch(Exception $e){
-        DB::rollback();
-        return back()->withInput();
       }
-*/
-//      $comment->fill($form)->save();
-//      return redirect('/scenario/'.$id);
-//      return view($this->domain.'.index',['id' => $id, 'form'=>$parameter]);
-      return redirect('/scenario/'.$id);
-
-    }
-
-    function set_parameter_name( $form ){
-      $parameter_data = [
-        'name' => $name,
-      ];
-
+      return $parameter;
     }
 }

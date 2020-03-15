@@ -23,6 +23,10 @@ class Scenario extends Model
       return $this->hasMany('App\Models\ScenarioParameter');
     }
 
+    public function scenario_script(){
+      return $this->hasMany('App\Models\ScenarioScript');
+    }
+
     public function make_json(){
       $json_parameters = array();
       foreach($this->scenario_parameter as $scenario_parameter){
@@ -33,7 +37,11 @@ class Scenario extends Model
         'params' => $json_parameters
       ];
 
-      return  json_encode($json_str);
+      return  json_encode($json_str,JSON_PRETTY_PRINT);
 
+    }
+
+    public function scopeNameEqual($query,$name){
+      return $query->where('name' , $name);
     }
 }

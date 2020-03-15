@@ -23,7 +23,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      {{$item->make_json()}}
+      <pre>{!! $item->make_json() !!}</pre>
     </div>
   </div>
   @endforeach

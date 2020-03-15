@@ -25,6 +25,12 @@
             <li class="nav-item">
               <a class="nav-link" href="/scenario/{{$id}}">テストシナリオ管理</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/scenario_parameter/{{$id}}">変数管理</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/scenario_script/{{$id}}">スクリプト管理</a>
+            </li>
           </ul>
         </nav>
       </div>
