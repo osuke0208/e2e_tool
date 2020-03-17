@@ -15,11 +15,12 @@ class ScenarioParameterController extends ScenarioController
       return new ScenarioParameter;
     }
 
-    function add($id = null){
+    function add(Request $request,$id = null){
       $scenarios = Scenario::all();
       return view($this->domain.'.add',[
         'id'=>$id,
-        'scenarios' => $scenarios
+        'scenarios' => $scenarios,
+        'domain' => $this->domain
       ]);
     }
 
@@ -28,19 +29,24 @@ class ScenarioParameterController extends ScenarioController
       $form = $request->all();
       unset($form['_token']);
 
-      foreach($form['parameter']['name'] as $key => $name){
-        $parameter[$key] = array(
-          'name' => $name,
-          'value' =>  $form['parameter']['value'][$key],
-          'scenario_id' => $form['scenario_id'],
-          'created_at' => now(),
-          'updated_at' => now()
-        );
-      };
+      $parameter = $this->make_parameter_data($form);
       $items->insert($parameter);
 
      return redirect($this->domain.'/'.$id);
 
+    }
+
+    public function make_parameter_data( $form ){
+      foreach($form[$this->domain]['name'] as $key => $name){
+        $parameter[$key] = array(
+          'name' => $name,
+          'value' =>  $form[$this->domain]['value'][$key],
+          'scenario_id' => $form['scenario_id'],
+          'created_at' => now(),
+          'updated_at' => now()
+        );
+      }
+      return $parameter;
     }
 
 }

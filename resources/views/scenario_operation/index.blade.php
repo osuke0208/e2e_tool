@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @php
-  $index_title = '変数一覧';
+  $index_title = '操作一覧';
 @endphp
 
 @section('content_table')
@@ -9,16 +9,14 @@
     <table class="table table-condensed">
     <tr>
       <th style="width: 10px">#</th>
-      <th>変数名</th>
-      <th>値</th>
-      <th>所属シナリオ</th>
+      <th>操作名</th>
+      <th>json</th>
     </tr>
     @foreach($items as $item)
       <tr>
         <td>{{$item->id}}</td>
         <td>{{$item->name}}</td>
-        <td>{{$item->value}}</td>
-        <td>{{$item->scenario->name}}</td>
+        <td><pre>{{--$item->make_json()--}}</pre></td>
       </tr>
     @endforeach
   </div>

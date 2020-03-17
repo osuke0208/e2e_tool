@@ -23,6 +23,12 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" dat-widget="treeview" role="menu" >
             <li class="nav-item">
+              <a class="nav-link" href="/organisation/{{$id}}">組織管理</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/project/{{$id}}">プロジェクト管理</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/scenario/{{$id}}">テストシナリオ管理</a>
             </li>
             <li class="nav-item">
@@ -30,6 +36,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/scenario_script/{{$id}}">スクリプト管理</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/scenario_operation/{{$id}}">操作管理</a>
             </li>
           </ul>
         </nav>

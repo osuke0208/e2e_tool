@@ -1,33 +1,27 @@
-@extends('layouts.dashBoard')
+@extends('layouts.index')
 
-@section('title','変数一覧')
+@php
+  $index_title = 'スクリプト一覧';
+@endphp
 
-@section('content_header')
-  <h1>変数一覧</h1>
-@endsection
-
-@section('content')
-
-<a href="/scenario_parameter/{{$id}}/add">変数追加</a>
-
-<div class="container">
-  <table class="table table-condensed">
-  <tr>
-    <th style="width: 10px">#</th>
-    <th>変数名</th>
-    <th>値</th>
-    <th>説明</th>
-  </tr>
-  @foreach($items as $item)
+@section('content_table')
+  <div class="container">
+    <table class="table table-condensed">
     <tr>
-      <td>{{$item->id}}</td>
-      <td>{{$item->name}}</td>
-      <td>{{$item->value}}</td>
-      <td>$item->description</td>
+      <th style="width: 10px">#</th>
+      <th>スクリプト名</th>
+      <th>json</th>
     </tr>
-  @endforeach
-
-</div>
-
-
+    @foreach($items as $item)
+      <tr>
+        <td>{{$item->id}}</td>
+        <td>{{$item->name}}</td>
+        <td><pre>
+          @foreach($item->make_json() as $json)
+            {{$json}}
+          @endforeach
+        </pre></td>
+      </tr>
+    @endforeach
+  </div>
 @endsection
