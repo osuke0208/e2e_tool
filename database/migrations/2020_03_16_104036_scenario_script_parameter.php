@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ScenarioScripts extends Migration
+class ScenarioScriptParameter extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,15 @@ class ScenarioScripts extends Migration
     public function up()
     {
         //
-        Schema::create('scenario_scripts', function (Blueprint $table) {
+        Schema::create('scenario_script_parameters', function (Blueprint $table) {
           $table->id();
           $table->string('name');
-          $table->integer('scenario_id');
+          $table->integer('scenario_operation_id');
+          $table->string('value');
           $table->timestamps();
         });
-
     }
+
 
     /**
      * Reverse the migrations.
@@ -31,6 +32,6 @@ class ScenarioScripts extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('scenario_scripts');
+        Schema::dropIfExists('scenario_script_parameters');
     }
 }

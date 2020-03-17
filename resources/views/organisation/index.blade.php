@@ -1,24 +1,20 @@
 @extends('layouts.index')
 
 @php
-  $index_title = '変数一覧';
+  $index_title = '組織一覧';
 @endphp
 
 @section('content_table')
   <div class="container">
     <table class="table table-condensed">
     <tr>
-      <th style="width: 10px">#</th>
-      <th>変数名</th>
-      <th>値</th>
-      <th>所属シナリオ</th>
+      <th>組織名</th>
+      <th>概要</th>
     </tr>
     @foreach($items as $item)
       <tr>
-        <td>{{$item->id}}</td>
         <td>{{$item->name}}</td>
-        <td>{{$item->value}}</td>
-        <td>{{$item->scenario->name}}</td>
+        <td>{{$item->description}}</td>
       </tr>
     @endforeach
   </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ScenarioScripts extends Migration
+class ScenarioScriptParameterEvents extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,11 @@ class ScenarioScripts extends Migration
     public function up()
     {
         //
-        Schema::create('scenario_scripts', function (Blueprint $table) {
+        Schema::create('scenario_script_parameter_events', function (Blueprint $table) {
           $table->id();
           $table->string('name');
-          $table->integer('scenario_id');
           $table->timestamps();
         });
-
     }
 
     /**
@@ -31,6 +29,5 @@ class ScenarioScripts extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('scenario_scripts');
     }
 }
