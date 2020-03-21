@@ -10,11 +10,12 @@ class ScenarioParameterController extends ScenarioController
 {
     //
     public $domain = 'scenario_parameter';
+    public $parent_domain = 'scenario';
 
     public function model(){
       return new ScenarioParameter;
     }
-
+/*
     function add(Request $request,$id = null){
       $scenarios = Scenario::all();
       return view($this->domain.'.add',[
@@ -23,7 +24,7 @@ class ScenarioParameterController extends ScenarioController
         'domain' => $this->domain
       ]);
     }
-
+*/
     function create(Request $request, $id=null){
       $items = $this->model();
       $form = $request->all();
@@ -32,7 +33,7 @@ class ScenarioParameterController extends ScenarioController
       $parameter = $this->make_parameter_data($form);
       $items->insert($parameter);
 
-     return redirect($this->domain.'/'.$id);
+     return redirect($this->parent_domain.'/'.$id.'/detail/'.$form['scenario_id']);
 
     }
 

@@ -5,11 +5,11 @@
 @endphp
 
 @section('input_field')
-@include('layouts.scenario_select')
 <div id="input_pluralBox">
   <div id="input_plural">
     <div class="row">
       <div class="col-2">
+        <input type="hidden" name="scenario_id" value="{{$parent_id}}">
         <input type="text" name="{{$domain}}[name][]" class="form-control" placeholder="{{$label}}" value="">
       </div>
       <div class="col-7">

@@ -5,7 +5,7 @@
 @endphp
 
 @section('input_field')
-@include('layouts.project_select')
+  <input type="hidden" id="project_id" name="project_id" value="{{$parent_id}}">
   <div class="row">
     <div class="col-3">
       <input type="hidden" id="user_id" name="user_id" value="{{$id}}">

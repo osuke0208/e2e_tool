@@ -18,6 +18,7 @@ class ScenarioOperation extends Migration
           $table->id();
           $table->string('name');
           $table->integer('scenario_script_id');
+          $table->integer('scenario_script_order');
           $table->timestamps();
         });
     }

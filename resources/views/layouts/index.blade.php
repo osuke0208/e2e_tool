@@ -10,8 +10,6 @@
 
 @section('content')
 
-<a href="/{{$domain}}/{{$id}}/add">新規登録</a>
-
 @yield('content_table')
 
 @endsection

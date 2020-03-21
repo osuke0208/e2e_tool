@@ -16,8 +16,9 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <script src="{{asset('/vendor/plugin/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+
 
     </head>
   @endsection
