@@ -23,9 +23,9 @@ class ScenarioScript extends ScenarioParameter
     public function make_json(){
       $json_str = [];
       foreach ($this->scenario_operation as $scenario_operation){
-        $json_str[] = $scenario_operation->make_json();
+        $json_str[] = json_decode($scenario_operation->make_json());
       }
+      return json_encode  ($json_str,JSON_PRETTY_PRINT);
 
-      return $json_str;
     }
 }

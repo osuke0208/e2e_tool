@@ -27,6 +27,7 @@ class ScenarioOperation extends Model
       foreach($this->scenario_script_parameter as $scenario_script_parameter){
         $json_str[$scenario_script_parameter->name] = $scenario_script_parameter->value;
       }
-      return json_encode  ($json_str,JSON_PRETTY_PRINT);
+//      return json_encode  ($json_str,JSON_PRETTY_PRINT);
+      return json_encode  ($json_str);
     }
 }

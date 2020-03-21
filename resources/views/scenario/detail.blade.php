@@ -5,6 +5,16 @@
 @endphp
 
 @section('content_table')
+<div class="container">
+  <div class="row">
+
+    <div class="col-3">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_scenario">
+        Scenario JSON表示
+      </button>
+    </div>
+  </div>
+</div>
   <div class="container">
     <div class="card">
       <div class="row">
@@ -74,4 +84,11 @@
       </div>
     </div>
   </div>
+  @component('layouts.modal')
+    @slot('modal_id','modal_scenario')
+    @slot('modal_title','Scenario Json')
+    @slot('modal_body')
+      <pre>{{$item->make_json()}}</pre>
+    @endslot
+  @endcomponent
 @endsection
