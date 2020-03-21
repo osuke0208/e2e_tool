@@ -32,17 +32,20 @@ Route::get('/project/{id}/add','ProjectController@add');
 Route::post('/project/{id}/add','ProjectController@create');
 
 Route::get('/scenario/{id}','ScenarioController@index');
-Route::get('/scenario/{id}/add','ScenarioController@add');
+//Route::get('/scenario/{id}/add','ScenarioController@add');
+Route::get('/scenario/{id}/add/{parent_id?}','ScenarioController@add');
 Route::post('/scenario/{id}/add','ScenarioController@create');
+Route::get('/scenario/{id}/detail/{this_id}','ScenarioController@detail');
 
 Route::get('/scenario_parameter/{id}','ScenarioParameterController@index');
-Route::get('/scenario_parameter/{id}/add','ScenarioParameterController@add');
+Route::get('/scenario_parameter/{id}/add/{parent_id}','ScenarioParameterController@add');
 Route::post('/scenario_parameter/{id}/add','ScenarioParameterController@create');
 
 Route::get('/scenario_script/{id}','ScenarioScriptController@index');
-Route::get('/scenario_script/{id}/add','ScenarioScriptController@add');
+Route::get('/scenario_script/{id}/add/{parent_id?}','ScenarioScriptController@add');
 Route::post('/scenario_script/{id}/add','ScenarioScriptController@create');
+Route::get('/scenario_script/{id}/detail/{this_id}','ScenarioScriptController@detail');
 
 Route::get('/scenario_operation/{id}','ScenarioOperationController@index');
-Route::get('/scenario_operation/{id}/add','ScenarioOperationController@add');
+Route::get('/scenario_operation/{id}/add/{parent_id}','ScenarioOperationController@add');
 Route::post('/scenario_operation/{id}/add','ScenarioOperationController@create');
