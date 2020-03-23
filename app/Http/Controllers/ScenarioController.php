@@ -18,13 +18,19 @@ class ScenarioController extends OrganisationController
       return new Scenario;
     }
 
+    public function get_parent_id($item){
+      return $item->project->id;
+    }
+
     public function detail(Request $request, $id = null, $this_id = null){
       $item = $this->model()->find($this_id);
+      $parent_id = $this->get_parent_id($item);
       return view($this->domain.'.detail',[
         'id' => $id,
         'item'  => $item,
         'domain' => $this->domain,
-        'this_id' => $this_id
+        'this_id' => $this_id,
+        'parent_id' => $parent_id
       ]);
     }
 
@@ -33,6 +39,7 @@ class ScenarioController extends OrganisationController
         'id'=>$id,
         'domain' => $this->domain,
         'parent_id' => $parent_id,
+        'action' => 'add'
       ]);
     }
 
@@ -44,4 +51,13 @@ class ScenarioController extends OrganisationController
       return redirect($this->parent_domain.'/'.$id);
     }
 
+    public function update(Request $request, $id = null){
+      $comment = $this->model()->find($request->scenario_id);
+      $form = $request->all();
+      unset($form['_token']);
+      unset($form['scenario_id']);
+      $comment->fill($form)->save();
+
+      return redirect($this->domain.'/'.$id.'/detail/'.$request->scenario_id);
+    }
 }

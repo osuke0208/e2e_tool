@@ -5,18 +5,20 @@
 @endphp
 
 @section('content_table')
-<div class="container">
-  <div class="row">
-
-    <div class="col-3">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_scenario">
-        Scenario JSON表示
-      </button>
-    </div>
-  </div>
-</div>
   <div class="container">
     <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          {{$item->name}}<a href="/{{$domain}}/{{$id}}/edit/{{$parent_id}}/{{$item->id}}"><i class="fa fa-edit"></i></a>
+        </h3>
+        <div class="card-tools">
+          <div class="col-12">
+            <button type="button" class="btn-sm btn-primary btn-lg" data-toggle="modal" data-target="#modal_scenario">
+              Scenario JSON表示
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-6 col-xs-6">
           <div class="card card-outline card-primary">
@@ -37,7 +39,14 @@
                 @foreach($item->scenario_script as $scenario_script)
                   <tr>
                     <td>
-                      {{$scenario_script->name}}
+                      <div class="row">
+                        <div class="col-8 ">
+                          {{$scenario_script->name}}
+                        </div>
+                        <div class="col-3 text-right">
+                          <a href="/scenario_script/{{$id}}/edit/{{$item->id}}/{{$scenario_script->id}}"><i class="fa fa-edit"></i></a>
+                        </div>
+                      </div>
                     </td>
                     <td>
                       @foreach($scenario_script->scenario_operation as $scenario_oparation)
@@ -73,7 +82,16 @@
                 </tr>
                 @foreach($item->scenario_parameter as $scenario_parameter)
                   <tr>
-                    <td>{{$scenario_parameter->name}}</td>
+                    <td>
+                      <div class="row">
+                        <div class="col-6">
+                          {{$scenario_parameter->name}}
+                        </div>
+                        <div class="col-3 text-right">
+                          <a href="/scenario_parameter/{{$id}}/edit/{{$item->id}}/{{$scenario_parameter->id}}"><i class="fa fa-edit"></i></a>
+                        </div>
+                      </div>
+                    </td>
                     <td>{{$scenario_parameter->value}}</td>
                   </tr>
                 @endforeach

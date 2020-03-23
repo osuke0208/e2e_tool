@@ -28,24 +28,35 @@ Route::get('/organisation/{id}/add','OrganisationController@add');
 Route::post('/organisation/{id}/add','OrganisationController@create');
 
 Route::get('/project/{id}','ProjectController@index');
-Route::get('/project/{id}/add','ProjectController@add');
+Route::get('/project/{id}/add/','ProjectController@add');
 Route::post('/project/{id}/add','ProjectController@create');
+Route::get('/project/{id}/edit/{this_id}','ProjectController@edit');
+Route::post('/project/{id}/edit','ProjectController@update');
 
 Route::get('/scenario/{id}','ScenarioController@index');
 //Route::get('/scenario/{id}/add','ScenarioController@add');
 Route::get('/scenario/{id}/add/{parent_id?}','ScenarioController@add');
 Route::post('/scenario/{id}/add','ScenarioController@create');
 Route::get('/scenario/{id}/detail/{this_id}','ScenarioController@detail');
+Route::get('/scenario/{id}/edit/{parent_id}/{this_id}','ScenarioController@edit');
+Route::post('/scenario/{id}/edit/','ScenarioController@update');
 
 Route::get('/scenario_parameter/{id}','ScenarioParameterController@index');
 Route::get('/scenario_parameter/{id}/add/{parent_id}','ScenarioParameterController@add');
 Route::post('/scenario_parameter/{id}/add','ScenarioParameterController@create');
+Route::get('/scenario_parameter/{id}/edit/{parent_id}/{this_id}','ScenarioParameterController@edit');
+Route::post('/scenario_parameter/{id}/edit','ScenarioParameterController@update');
+
 
 Route::get('/scenario_script/{id}','ScenarioScriptController@index');
 Route::get('/scenario_script/{id}/add/{parent_id?}','ScenarioScriptController@add');
 Route::post('/scenario_script/{id}/add','ScenarioScriptController@create');
 Route::get('/scenario_script/{id}/detail/{this_id}','ScenarioScriptController@detail');
+Route::get('/scenario_script/{id}/edit/{parent_id}/{this_id}','ScenarioScriptController@edit');
+Route::post('/scenario_script/{id}/edit','ScenarioScriptController@update');
 
 Route::get('/scenario_operation/{id}','ScenarioOperationController@index');
 Route::get('/scenario_operation/{id}/add/{parent_id}','ScenarioOperationController@add');
 Route::post('/scenario_operation/{id}/add','ScenarioOperationController@create');
+Route::get('/scenario_operation/{id}/edit/{parent_id}/{this_id}','ScenarioOperationController@edit');
+Route::post('/scenario_operation/{id}/edit','ScenarioOperationController@update');

@@ -25,7 +25,8 @@ class OrganisationController extends Controller
     public function add(Request $request, $id = null){
       return view($this->domain.'.add',[
         'id' => $id,
-        'domain' => $this->domain
+        'domain' => $this->domain,
+        'action' => 'add'
       ]);
     }
 
@@ -35,5 +36,16 @@ class OrganisationController extends Controller
       unset($form['_token']);
       $items->fill($form)->save();
       return redirect($this->domain.'/'.$id);
+    }
+
+    public function edit(Request $request, $id = null, $parent_id = null, $this_id = null){
+      $item = $this->model()->find($this_id);
+      return view($this->domain.'/add',[
+        'id' => $id,
+        'domain' => $this->domain,
+        'action' => 'edit',
+        'item' => $item,
+        'parent_id'=> $parent_id
+      ]);
     }
 }
