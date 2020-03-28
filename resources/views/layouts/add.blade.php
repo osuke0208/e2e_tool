@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <form method="POST" action="/{{$domain}}/{{$id}}/add">
+  <form method="POST" action="/{{$domain}}/{{$id}}/{{$action}}">
     @csrf
     <div class="form-group">
       <div class="row">
@@ -17,7 +17,6 @@
           <input type="submit" class="btn btn-primary" value="登録">
         </div>
       </div>
-      @yield('additional_item')
       @yield('input_field')
     </div>
   </form>

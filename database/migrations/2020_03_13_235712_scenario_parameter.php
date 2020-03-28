@@ -16,9 +16,10 @@ class ScenarioParameter extends Migration
         //
         Schema::dropIfExists('scenario_paramaters');
         Schema::create('scenario_parameters', function (Blueprint $table) {
-          $table->id();
+          $table->increments('id');
           $table->string('name');
-          $table->integer('scenario_id');
+          $table->integer('scenario_id')->unsigned();
+          $table->foreign('scenario_id')->references('id')->on('scenarios')->onDelete('cascade');
           $table->string('value');
           $table->timestamps();
         });

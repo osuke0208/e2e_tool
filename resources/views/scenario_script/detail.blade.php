@@ -26,10 +26,25 @@
       @foreach($item->scenario_operation as $scenario_operation)
       <div class="card card-default collapsed-card">
         <div class="card-header with-border">
-          <h3 class="card-title">{{$scenario_operation->name}}</h3>
-          <div class="card-tools pull-right">
-            <button class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
-            </button>
+          <h3 class="card-title">
+            <a href="" data-card-widget="collapse">{{$scenario_operation->name}}</a>
+          </h3>
+          <div class="card-tools">
+            <div class="row">
+              <div class="col-6 text-right">
+                <a href="/scenario_operation/{{$id}}/edit/{{$this_id}}/{{$scenario_operation->id}}"><i class="fa fa-edit"></i></a>
+              </div>
+              <div class="col-6">
+                <a href="#modal_scenario_operation_{{$scenario_operation->id}}" data-toggle="modal"><i class="fas fa-trash-alt"></i></a>
+                @component('layouts.modal')
+                  @slot('modal_id','modal_scenario_operation_'.$scenario_operation->id)
+                  @slot('modal_title',$scenario_operation->name.'を削除しますか?')
+                  @slot('modal_body')
+                    @include('scenario_operation.delete')
+                  @endslot
+                @endcomponent
+              </div>
+            </div>
           </div>
             <!-- /.card-tools -->
         </div>
