@@ -33,4 +33,13 @@ class ProjectController extends OrganisationController
         'parent_id'=> $parent_id
       ]);
     }
+
+
+    public function get_id($form) {
+      return $form['project_id'];
+    }
+
+    public function get_redirect_url( $form ,$id ){
+      return $this->domain.'/'.$id;
+    }
 }

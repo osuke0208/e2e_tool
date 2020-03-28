@@ -18,7 +18,15 @@
       <div class="card-header">
         <h3 class="card-title">
           {{$item->name}}<a href="/{{$domain}}/{{$id}}/edit/{{$item->id}}"><i class="fa fa-edit"></i></a>
+          <a href="#modal_project_{{$item->id}}" data-toggle="modal"><i class="fas fa-trash-alt"></i></a>
         </h3>
+        @component('layouts.modal')
+          @slot('modal_id','modal_project_'.$item->id)
+          @slot('modal_title',$item->name.'を削除しますか?')
+          @slot('modal_body')
+            @include('project.delete')
+          @endslot
+        @endcomponent
         <div class="card-tools">
           <a href="/scenario/{{$id}}/add/{{$item->id}}" class="btn btn-primary">シナリオ追加</a>
         </div>

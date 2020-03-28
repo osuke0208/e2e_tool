@@ -60,4 +60,12 @@ class ScenarioController extends OrganisationController
 
       return redirect($this->domain.'/'.$id.'/detail/'.$request->scenario_id);
     }
+
+    public function get_id( $form ) {
+      return $form['scenario_id'];
+    }
+
+    public function get_redirect_url( $form , $id  ){
+      return $this->parent_domain.'/'.$id ;
+    }
 }

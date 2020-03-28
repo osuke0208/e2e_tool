@@ -13,7 +13,7 @@ if( $action == 'add'){
 <div class="container">
   <div class="col-4">
     <label>操作名</label>
-    <input type="text" name="scenario_script[name]" class="form-control" placeholder="操作名" value="{{$item->name}}">
+    <input type="text" name="scenario_script[name]" class="form-control" placeholder="操作名" value="@isset($item){{$item->name}}@endisset">
     <input type="hidden" name="scenario_script_id" id="scenario_script_id" value="{{$parent_id}}">
     @isset($item)
     <input type="hidden" name="scenario_operation_id" id="scenario_operation_id" value="{{$item->id}}">

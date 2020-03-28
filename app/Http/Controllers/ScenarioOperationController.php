@@ -91,4 +91,13 @@ class ScenarioOperationController extends ScenarioParameterController
       return $parameter;
     }
 
+    public function get_id( $form ) {
+      return $form['scenario_operation_id'];
+    }
+
+    public function get_redirect_url( $form , $id ){
+      $scenario_script_id = $this->model()->find($this->get_id($form))->scenario_script_id;
+      return $this->parent_domain.'/'.$id.'/detail/'. $scenario_script_id;
+    }
+
 }

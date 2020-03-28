@@ -27,16 +27,24 @@
       <div class="card card-default collapsed-card">
         <div class="card-header with-border">
           <h3 class="card-title">
+            <a href="" data-card-widget="collapse">{{$scenario_operation->name}}</a>
+          </h3>
+          <div class="card-tools">
             <div class="row">
-              <div class="col-10">
-                <a href="" data-card-widget="collapse">{{$scenario_operation->name}}</a>
-              </div>
-              <div class="col-2 text-right">
+              <div class="col-6 text-right">
                 <a href="/scenario_operation/{{$id}}/edit/{{$this_id}}/{{$scenario_operation->id}}"><i class="fa fa-edit"></i></a>
               </div>
+              <div class="col-6">
+                <a href="#modal_scenario_operation_{{$scenario_operation->id}}" data-toggle="modal"><i class="fas fa-trash-alt"></i></a>
+                @component('layouts.modal')
+                  @slot('modal_id','modal_scenario_operation_'.$scenario_operation->id)
+                  @slot('modal_title',$scenario_operation->name.'を削除しますか?')
+                  @slot('modal_body')
+                    @include('scenario_operation.delete')
+                  @endslot
+                @endcomponent
+              </div>
             </div>
-          </h3>
-          <div class="card-tools pull-right">
           </div>
             <!-- /.card-tools -->
         </div>

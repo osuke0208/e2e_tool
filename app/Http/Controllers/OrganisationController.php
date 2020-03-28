@@ -35,6 +35,7 @@ class OrganisationController extends Controller
       $form = $request->all();
       unset($form['_token']);
       $items->fill($form)->save();
+
       return redirect($this->domain.'/'.$id);
     }
 
@@ -48,4 +49,23 @@ class OrganisationController extends Controller
         'parent_id'=> $parent_id
       ]);
     }
+
+    public function remove(Request $request, $id = null){
+      $form = $request->all();
+      $this_id = $this->get_id($form);
+      $redirect_to = $this->get_redirect_url($form,$id);
+      $item = $this->model()->find($this_id)->delete();
+
+      return redirect($redirect_to);
+
+    }
+
+    public function get_id($form) {
+      return $form['organisation_id'];
+    }
+
+    public function get_redirect_url( $form, $id ){
+      return $this->domain.'/'.$id;
+    }
+
 }

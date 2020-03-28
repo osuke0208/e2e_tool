@@ -15,9 +15,9 @@ class ScenarioScriptParameter extends Migration
     {
         //
         Schema::create('scenario_script_parameters', function (Blueprint $table) {
-          $table->id();
+          $table->increments('id');
           $table->string('name');
-          $table->integer('scenario_operation_id');
+          $table->integer('scenario_operation_id')->unsigned();
           $table->string('value');
           $table->timestamps();
         });
