@@ -17,7 +17,7 @@ class Organisations extends Migration
       Schema::create('organisations', function (Blueprint $table) {
         $table->id();
         $table->string('name');
-        $table->string('description');
+        $table->string('description')->nullable();
         $table->timestamps();
       });
     }

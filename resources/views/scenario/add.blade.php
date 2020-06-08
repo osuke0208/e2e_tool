@@ -10,7 +10,7 @@ if($action == 'add'){
 @endphp
 
 @section('input_field')
-  <input type="hidden" id="project_id" name="project_id" value="{{$parent_id}}">
+  <input type="hidden" id="scenario_group_id" name="scenario_group_id" value="{{$parent_id}}">
   <div class="row">
     <div class="col-3">
       <input type="hidden" id="user_id" name="user_id" value="{{$id}}">

@@ -18,7 +18,7 @@ class ScenarioParamaters extends Migration
           $table->increments('id');
           $table->string('name');
           $table->integer('scenario_id')->unsigned();
-          $table->foreign('scenario_id')->references('id')->on('scenarios')->onDelete('cascade');
+        //  $table->foreign('scenario_id')->references('id')->on('scenarios')->onDelete('cascade');
           $table->string('value');
           $table->timestamps();
         });

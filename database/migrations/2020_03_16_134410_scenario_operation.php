@@ -18,7 +18,7 @@ class ScenarioOperation extends Migration
           $table->increments('id');
           $table->string('name');
           $table->integer('scenario_script_id')->unsigned();
-          $table->foreign('scenario_script_id')->references('id')->on('scenario_scripts')->onDelete('cascade');
+        //  $table->foreign('scenario_script_id')->references('id')->on('scenario_scripts')->onDelete('cascade');
           $table->integer('scenario_script_order');
           $table->timestamps();
         });

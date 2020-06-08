@@ -28,22 +28,21 @@
           @endslot
         @endcomponent
         <div class="card-tools">
-          <a href="/scenario/{{$id}}/add/{{$item->id}}" class="btn btn-primary">シナリオ追加</a>
+          <a href="/scenario_group/{{$id}}/add/{{$item->id}}" class="btn btn-primary">シナリオグループ追加</a>
         </div>
       </div>
       <div class="card-body no-padding">
         <div class="row">
-          @foreach($item->scenario as $scenario)
+          @foreach($item->scenario_group as $scenario_group)
             <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-blue">
                <div class="inner">
-                 <h4>{{$scenario->name}}</h4>
-                 <p>{{$scenario->description}}</p>
+                 <h4>{{$scenario_group->name}}</h4>
                </div>
                <div class="icon">
                  <i class="ion ion-stats-bars"></i>
                </div>
-               <a href="/scenario/{{$id}}/detail/{{$scenario->id}}/" class="small-box-footer">詳細<i class="fa fa-arrow-circle-right"></i></a>
+               <a href="/scenario_group/{{$id}}/detail/{{$scenario_group->id}}" class="small-box-footer">詳細<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
           @endforeach

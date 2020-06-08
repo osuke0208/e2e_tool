@@ -1,11 +1,20 @@
-<div class="container">
-  <form method="POST" action="/{{$domain}}/{{$id}}/delete">
-    @csrf
-    <input type="hidden" name="{{$target_name}}" value="{{$target_id}}">
-    <div class="row">
-      <div class="col-3 text-left">
-        <input type="submit" class="btn btn-primary" value="削除する">
-      </div>
+<div id="delete_form">
+  <div class="row">
+    <div class="col-6">
+      <form method="POST" action="/{{$domain}}/{{$item->id}}">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-submit btn-primary w-100">
+          <i class="fa fa-trash"></i>
+          OK
+        </button>
+      </form>
     </div>
-  </form>
+    <div class="col-6">
+      <a href="javascript:void(0);" data-dismiss="modal" role="button" class="btn btn-secondary btn-block float-left mr-1">
+        <i class="fa fa-times-circle mr-1"></i>
+        cancel
+      </a>
+    </div>
+  </div>
 </div>

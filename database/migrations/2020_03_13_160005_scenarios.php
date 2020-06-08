@@ -17,8 +17,8 @@ class Scenarios extends Migration
         Schema::create('scenarios', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
-          $table->integer('project_id')->unsigned();
-          $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+          $table->integer('scenario_group_id')->unsigned();
+        //  $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
           $table->integer('user_id');
           $table->string('description');
 

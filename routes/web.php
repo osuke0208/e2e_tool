@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::redirect('/', '/login');
 
 Auth::routes();
 
@@ -23,6 +22,13 @@ Route::get('/home', 'HomeController@index');
 Route::get('/home/{id}', 'HomeController@home')->name('home');
 Route::get('/logout','Auth\LoginController@logout');
 
+Route::resource('/organisations','OrganisationController');
+Route::get('/organisations/{id}/copy', 'OrganisationController@copy');
+Route::get('/organisations/{id}/delete', 'OrganisationController@delete');
+
+Route::resource('/projects', 'ProjectController');
+
+/*
 Route::get('/organisation/{id}','OrganisationController@index');
 Route::get('/organisation/{id}/add','OrganisationController@add');
 Route::post('/organisation/{id}/add','OrganisationController@create');
@@ -33,6 +39,14 @@ Route::post('/project/{id}/add','ProjectController@create');
 Route::get('/project/{id}/edit/{this_id}','ProjectController@edit');
 Route::post('/project/{id}/edit','ProjectController@update');
 Route::post('/project/{id}/delete','ProjectController@remove');
+
+Route::get('/scenario_group/{id}/','ScenarioGroupController@index');
+Route::get('/scenario_group/{id}/detail/{this_id}','ScenarioGroupController@detail');
+Route::get('/scenario_group/{id}/add/{parent_id?}','ScenarioGroupController@add');
+Route::post('/scenario_group/{id}/add','ScenarioGroupController@create');
+Route::get('/scenario_group/{id}/edit/{this_id}','ScenarioGroupController@edit');
+Route::post('/scenario_group/{id}/edit','ScenarioGroupController@update');
+Route::post('/scenario_group/{id}/delete','ScenarioGroupController@remove');
 
 Route::get('/scenario/{id}','ScenarioController@index');
 //Route::get('/scenario/{id}/add','ScenarioController@add');
@@ -65,3 +79,4 @@ Route::post('/scenario_operation/{id}/add','ScenarioOperationController@create')
 Route::get('/scenario_operation/{id}/edit/{parent_id}/{this_id}','ScenarioOperationController@edit');
 Route::post('/scenario_operation/{id}/edit','ScenarioOperationController@update');
 Route::post('/scenario_operation/{id}/delete','ScenarioOperationController@remove');
+*/

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Scenario;
-use App\Models\Project;
+use App\Models\ScenarioGroup;
 
 use Illuminate\Support\Facades\DB;
 
@@ -13,18 +13,19 @@ class ScenarioController extends OrganisationController
 {
     //
     public $domain = 'scenario';
-    public $parent_domain = 'project';
+    public $parent_domain = 'scenario_group';
     public function model(){
       return new Scenario;
     }
 
     public function get_parent_id($item){
-      return $item->project->id;
+      return $item->scenario_group->id;
     }
 
     public function detail(Request $request, $id = null, $this_id = null){
       $item = $this->model()->find($this_id);
       $parent_id = $this->get_parent_id($item);
+
       return view($this->domain.'.detail',[
         'id' => $id,
         'item'  => $item,
@@ -48,7 +49,7 @@ class ScenarioController extends OrganisationController
       $form = $request->all();
       unset($form['_token']);
       $items->fill($form)->save();
-      return redirect($this->parent_domain.'/'.$id);
+      return redirect($this->parent_domain.'/'.$id.'/detail/'.$form['scenario_group_id']);
     }
 
     public function update(Request $request, $id = null){
