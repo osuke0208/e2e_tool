@@ -15,9 +15,10 @@ class ScenarioOperation extends Migration
     {
         //
         Schema::create('scenario_operations', function (Blueprint $table) {
-          $table->id();
+          $table->increments('id');
           $table->string('name');
-          $table->integer('scenario_script_id');
+          $table->integer('scenario_script_id')->unsigned();
+        //  $table->foreign('scenario_script_id')->references('id')->on('scenario_scripts')->onDelete('cascade');
           $table->integer('scenario_script_order');
           $table->timestamps();
         });

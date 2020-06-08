@@ -15,9 +15,9 @@ class Projects extends Migration
     {
         //
         Schema::create('projects', function (Blueprint $table) {
-          $table->id();
+          $table->increments('id');
           $table->string('name');
-          $table->integer('organisation_id');
+          $table->integer('organisation_id')->unsigned();
           $table->timestamps();
         });
     }

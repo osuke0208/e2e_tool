@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function home(){
       $data_array = [
         'id' => Auth::user()->id,
-        'name' => Auth::user()->name
+        'name' => Auth::user()->name,
       ];
       return view('home',$data_array);
     }

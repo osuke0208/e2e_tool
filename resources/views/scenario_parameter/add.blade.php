@@ -1,7 +1,6 @@
 @extends('layouts.add')
 @php
   $add_title = '変数追加';
-  $label = '変数名';
 @endphp
 
 @section('input_field')
@@ -10,7 +9,7 @@
     <div class="row">
       <div class="col-2">
         <input type="hidden" name="scenario_id" value="{{$parent_id}}">
-        <input type="text" name="{{$domain}}[name][]" class="form-control" placeholder="{{$label}}" value="">
+        <input type="text" name="{{$domain}}[name][]" class="form-control" placeholder="変数名" value="">
       </div>
       <div class="col-7">
         <input type="text" name="{{$domain}}[value][]" class="form-control" placeholder="値" value="">

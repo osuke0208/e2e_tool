@@ -13,9 +13,9 @@ class project extends Model
       'description' => 'required',
       'user_id' => 'required'
     );
-    
-    public function scenario(){
-      return $this->hasMany('App\Models\Scenario');
+
+    public function scenario_group(){
+      return $this->hasMany('App\Models\ScenarioGroup');
     }
 
     public function organisation(){

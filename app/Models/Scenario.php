@@ -10,7 +10,6 @@ class Scenario extends Model
     protected $guarded = array('id');
     public static $rules = array(
       'name' => 'required',
-      'description' => 'required',
       'user_id' => 'required'
     );
 
@@ -23,8 +22,8 @@ class Scenario extends Model
       return $this->hasMany('App\Models\ScenarioParameter');
     }
 
-    public function project(){
-      return $this->belongsTo('App\Models\Project');
+    public function scenario_group(){
+      return $this->belongsTo('App\Models\ScenarioGroup', 'scenario_group_id');
     }
 
     public function scenario_script(){
